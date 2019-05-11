@@ -1,0 +1,17 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def GetLeastNumbers_Solution(self, tinput, k):
+        # write code here
+        for i in range(len(tinput)):
+            for j in range(i,len(tinput)):
+                if tinput[i]>tinput[j]:
+                    temp = tinput[i] 
+                    tinput[i] = tinput[j]
+                    tinput[j] = temp
+        a = []
+        if k >len(tinput):
+            return []
+        for i in range(k):
+            a.append(tinput[i])
+        return a
+ 
