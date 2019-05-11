@@ -22,3 +22,4 @@ class Solution:
         if pHead2:
             merge.next = pHead2
         return p.next
+#思路：首先初始化两个链表a，b；判断两个链表的节点小则插入，最后插入剩余的节点
