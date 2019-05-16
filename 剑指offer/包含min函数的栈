@@ -1,0 +1,23 @@
+# -*- coding:utf-8 -*-
+class Solution:
+    def __init__(self):
+        self.stack = []
+         
+    def push(self, node):
+        # write code here
+        #self.stack.insert(0, node)
+        self.stack.append(node)
+    def pop(self):
+        # write code here
+        self.stack.pop()
+    def top(self):
+        # write code here
+        return self.stack[0]
+    def min(self):
+        # write code here
+        return min(self.stack)
+        
+        
+#1.先设置一个列表：
+#2.根据问题需求来确定pop和top
+#3.列表也有pop和top的操作
