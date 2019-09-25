@@ -1,0 +1,44 @@
+连续输入字符串，请按长度为8拆分每个字符串后输出到新的字符串数组；
+•长度不是8整数倍的字符串请在后面补数字0，空字符串不处理。
+输入要求：连续输入字符串(输入2次,每个字符串长度小于100)
+输出要求：输出到长度为8的新字符串数组
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string a;
+    string b;
+    cin>>a;
+    cin>>b;
+    int add;
+    int num1,num2;
+    if((a.size()%8)!=0){
+        add = 8- a.size()%8;
+        for(int i=0;i<add;i++){
+            a = a + "0";
+        }
+    }
+    if((b.size()%8)!=0){
+        add = 8- b.size()%8;
+        for(int i=0;i<add;i++){
+            b = b + "0";
+        }
+    }
+    num1 = a.size()/8;
+    num2 = b.size()/8;
+    string result1[num1];
+    string result2[num2];
+    for(int i=0;i<num1;i++){
+        result1[i] = a.substr(i*8,8);
+    }
+    for(int i=0;i<num2;i++){
+        result2[i] = b.substr(i*8,8);
+    }
+    for(int i=0;i<num1;i++){
+        cout<<result1[i]<<endl;
+    }
+    for(int i=0;i<num2;i++){
+        cout<<result2[i]<<endl;
+    }
+    return 0;
+}
