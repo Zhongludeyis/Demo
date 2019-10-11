@@ -1,0 +1,53 @@
+//C++
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string a;
+    while(cin>>a){
+        int b = 1;
+        int sum = 0;
+        for(int i=a.size()-1;i>=2;i--){
+            int num;
+            if(a[i]>='A'&&a[i]<='Z'){
+                num = a[i]-'A'+10;
+            }else if(a[i]>='a'&&a[i]<='z'){
+                num = a[i] - 'a'+10;
+            }else{
+                num = a[i] - '0';
+            }
+            sum += b*num;
+            b = b*16;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
+
+//Java
+import java.util.Scanner;
+import java.lang.Math;
+public class Main{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        while(input.hasNext()){
+            String a = input.nextLine();
+            String s;
+            s = a;
+            int sum = 0;
+            int b = 1;
+            for(int i= s.length()-1;i>=2;i--){
+                int num;
+                if(s.charAt(i)>='a'&&s.charAt(i)<='z'){
+                    num  = s.charAt(i) - 'a' + 10;
+                }else if(s.charAt(i)>='A'&&s.charAt(i)<='Z'){
+                    num = s.charAt(i) - 'A' + 10;
+                }else{
+                    num = s.charAt(i) - '0';
+                }
+                sum = sum + b*num;
+                b = b * 16;
+            }
+            System.out.println(sum);
+        }
+    }
+}
