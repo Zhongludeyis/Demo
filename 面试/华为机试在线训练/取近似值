@@ -1,0 +1,33 @@
+//取近似值，四舍五入
+//c++
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    float a;
+    cin>>a;
+    int b;
+    b = a;
+    if(b+1>a+0.5){
+        cout<<b;
+    }else{
+        cout<<b+1;
+    }
+    return 0;
+}
+
+//java
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        float a = sc.nextFloat();
+        int b;
+        b = (int)a;
+        if(b+1>a+0.5){
+            System.out.println(b);
+        }else{
+            System.out.println(b+1);
+        }
+    }
+}
+//java 将float转int要(int)
