@@ -1,0 +1,52 @@
+//合并表记录，相同键值对的表
+//c++
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int a[n][2];
+    int b[n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<2;j++){
+            cin>>a[i][j];
+        }
+        b[i] = 0;
+    }
+    int c[n][2];
+    int num = 0;
+    for(int i=0;i<n;i++){
+        int  count = 0;
+        if(b[i]==0){
+            c[num][0] = a[i][0];
+            count = a[i][1];
+            b[i] = 1;
+            for(int j=i+1;j<n;j++){
+                if(a[i][0]==a[j][0]&&b[j]==0){
+                    count += a[j][1];
+                    b[j] = 1;
+                }
+            }
+            c[num][1] = count;
+            num++;
+        }
+    }
+    int temp1,temp2;
+    for(int i=0;i<num;i++){
+        for(int j=i;j<num;j++){
+            if(c[i][0]>c[j][0]){
+                temp1 = c[i][0];
+                temp2 = c[i][1];
+                c[i][0] = c[j][0];
+                c[i][1] = c[j][1];
+                c[j][0] = temp1;
+                c[j][1] = temp2;
+            }
+        }
+    }
+    for(int i=0;i<num;i++){
+        cout<<c[i][0]<<" "<<c[i][1]<<endl;
+    }
+    return 0;
+}
+//java
