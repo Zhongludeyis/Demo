@@ -1,0 +1,35 @@
+给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+
+示例 1:
+
+输入: "abcabcbb"
+输出: 3 
+解释: 因为无重复字符的最长子串是 "abc"，所以其长度为3
+
+C++:
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int sum = 0;
+        for(int i=0;i<s.size();i++){
+            string s1 = "";
+            string::size_type position;
+            
+            int num = 0;
+            for(int j=i;j<s.size();j++){
+                position = s1.find(s[j]);
+                if(position == s1.npos){//如果没找到，返回一个特别的标志c++中用npos表示，我这里npos取值是4294967295
+                    s1 = s1 + s[j];
+                    num++;
+                }else{
+                    break;
+                }
+            }
+            if(sum<num){
+                sum = num;
+            }
+        }
+        return sum;
+    }
+    //遇到if要考虑其余的剩下情况，掌握string s.find()方法
+};
